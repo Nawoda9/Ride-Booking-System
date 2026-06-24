@@ -1,0 +1,25 @@
+{
+  "name": "mtit-microservices",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ride booking microservices + API Gateway (university delivery)",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "install:all": "npm install && npm install --prefix ride-booking-system/user-service && npm install --prefix ride-booking-system/driver-service && npm install --prefix ride-booking-system/booking-service && npm install --prefix ride-booking-system/payment-service && npm install --prefix ride-booking-system/api-gateway",
+    "ports:free": "node scripts/free-ports.js",
+    "prestart": "node scripts/free-ports.js",
+    "start": "concurrently -k -n user,gw \"npm start --prefix ride-booking-system/user-service\" \"npm start --prefix ride-booking-system/api-gateway\"",
+    "smoke": "node ride-booking-system/scripts/smoke-test.mjs",
+    "start:user": "npm start --prefix ride-booking-system/user-service",
+    "start:driver": "npm start --prefix ride-booking-system/driver-service",
+    "start:booking": "npm start --prefix ride-booking-system/booking-service",
+    "start:payment": "npm start --prefix ride-booking-system/payment-service",
+    "start:gateway": "npm start --prefix ride-booking-system/api-gateway"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "kill-port": "^2.0.1"
+  }
+}

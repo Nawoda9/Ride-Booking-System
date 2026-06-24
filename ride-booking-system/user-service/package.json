@@ -1,0 +1,21 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "Passenger user management microservice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "mtit-microservices": "file:../..",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0"
+  }
+}
